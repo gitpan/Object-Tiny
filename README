@@ -88,6 +88,14 @@ DESCRIPTION
     And that's really all there is to it. Let a million simple data classes
     bloom. Features? We don't need no stinking features.
 
+  Handling Subclasses
+    If the class you are using Object::Tiny for is already a subclass of
+    another Object::Tiny class (or a subclass of anything else) it doesn't
+    really work to make the class use multiple inheritance.
+
+    So in this case, Object::Tiny will create the accessors you specify, but
+    WON'T make it a subclass of Object::Tiny.
+
 SUPPORT
     Bugs should be reported via the CPAN bug tracker at
 
