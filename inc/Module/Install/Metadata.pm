@@ -6,7 +6,7 @@ use Module::Install::Base;
 
 use vars qw{$VERSION $ISCORE @ISA};
 BEGIN {
-	$VERSION = '0.66_02';
+	$VERSION = '0.65';
 	$ISCORE  = 1;
 	@ISA     = qw{Module::Install::Base};
 }
@@ -56,23 +56,14 @@ foreach my $key (@tuple_keys) {
     };
 }
 
-# configure_requires is currently a null-op
-sub configure_requires { 1 }
-
-# Aliases for build_requires that will have alternative
-# meanings in some future version of META.yml.
-sub test_requires      { shift->build_requires(@_)  }
-sub install_requires   { shift->build_requires(@_)  }
-
-# Aliases for installdirs options
-sub install_as_core    { $_[0]->installdirs('perl')   }
-sub install_as_cpan    { $_[0]->installdirs('site')   }
-sub install_as_site    { $_[0]->installdirs('site')   }
-sub install_as_vendor  { $_[0]->installdirs('vendor') }
+sub install_as_core   { $_[0]->installdirs('perl')   }
+sub install_as_cpan   { $_[0]->installdirs('site')   }
+sub install_as_site   { $_[0]->installdirs('site')   }
+sub install_as_vendor { $_[0]->installdirs('vendor') }
 
 sub sign {
     my $self = shift;
-    return $self->{'values'}{'sign'} if defined wantarray and ! @_;
+    return $self->{'values'}{'sign'} if defined wantarray and !@_;
     $self->{'values'}{'sign'} = ( @_ ? $_[0] : 1 );
     return $self;
 }

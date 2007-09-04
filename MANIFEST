@@ -1,4 +1,9 @@
 Changes
+examples/benchmark.pl
+examples/Foo_Bar_Accessor.pm
+examples/Foo_Bar_Accessor2.pm
+examples/Foo_Bar_Tiny.pm
+examples/Foo_Bar_Tiny2.pm
 inc/Module/Install.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
