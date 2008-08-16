@@ -1,22 +1,22 @@
 package Object::Tiny;
 
-# use strict; # Enable during dev and testing
+use strict 'vars', 'subs';
 BEGIN {
 	require 5.004;
-	$Object::Tiny::VERSION = '1.04';
+	$Object::Tiny::VERSION = '1.06';
 }
 
 sub import {
 	return unless shift eq 'Object::Tiny';
 	my $pkg   = caller;
 	my $child = !! @{"${pkg}::ISA"};
-	eval join '',
-		"package $pkg;\n",
-		($child ? () : "\@${pkg}::ISA = 'Object::Tiny';\n"),
+	eval join "\n",
+		"package $pkg;",
+		($child ? () : "\@${pkg}::ISA = 'Object::Tiny';"),
 		map {
 			defined and ! ref and /^[^\W\d]\w*$/s
 			or die "Invalid accessor name '$_'";
-			"sub $_ { return \$_[0]->{$_} }\n"
+			"sub $_ { return \$_[0]->{$_} }"
 		} @_;
 	die "Failed to generate $pkg" if $@;
 	return 1;
@@ -287,11 +287,11 @@ Object::Tiny has a minimum Perl dependency of 5.004.
 
 B<Object::Tiny has no module dependencies whatsoever>
 
-Object::Tiny does not load ANYTHING at all outside of it's own single .pm file.
+Object::Tiny does not load ANYTHING at all outside of its own single .pm file.
 
 So Object::Tiny will never get confused in odd situations due to old or weird
 versions of other modules (Class::Accessor::Fast has a dependency on base.pm,
-which has some caveats of it's own).
+which has some caveats of its own).
 
 =head1 SUPPORT
 
@@ -311,7 +311,7 @@ L<Config::Tiny>
 
 =head1 COPYRIGHT
 
-Copyright 2007 Adam Kennedy.
+Copyright 2007 - 2008 Adam Kennedy.
 
 This program is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.

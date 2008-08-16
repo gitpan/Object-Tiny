@@ -1,19 +1,14 @@
---- 
-abstract: Class building as simple as it gets
-author: Adam Kennedy <adamk@cpan.org>
-build_requires: 
-  Test::More: 0.42
-distribution_type: module
-generated_by: Module::Install version 0.65
-license: perl
-meta-spec: 
-  url: http://module-build.sourceforge.net/META-spec-v1.3.html
-  version: 1.3
-name: Object-Tiny
-no_index: 
-  directory: 
-    - inc
-    - t
-requires: 
-  perl: 5.004
-version: 1.04
+--- #YAML:1.0
+name:                Object-Tiny
+version:             1.06
+abstract:            A date object with as little code as possible
+license:             perl
+author:              
+    - Adam Kennedy <adamk@cpan.org>
+generated_by:        ExtUtils::MakeMaker version 6.44
+distribution_type:   module
+requires:     
+    Test::More:                    0.47
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3

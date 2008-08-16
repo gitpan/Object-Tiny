@@ -248,12 +248,12 @@ DESCRIPTION
 
     Object::Tiny has no module dependencies whatsoever
 
-    Object::Tiny does not load ANYTHING at all outside of it's own single
-    .pm file.
+    Object::Tiny does not load ANYTHING at all outside of its own single .pm
+    file.
 
     So Object::Tiny will never get confused in odd situations due to old or
     weird versions of other modules (Class::Accessor::Fast has a dependency
-    on base.pm, which has some caveats of it's own).
+    on base.pm, which has some caveats of its own).
 
 SUPPORT
     Bugs should be reported via the CPAN bug tracker at
@@ -269,7 +269,7 @@ SEE ALSO
     Config::Tiny
 
 COPYRIGHT
-    Copyright 2007 Adam Kennedy.
+    Copyright 2007 - 2008 Adam Kennedy.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
