@@ -4,15 +4,16 @@ NAME
 SYNOPSIS
       # Define a class
       package Foo;
+      
+  use Object::Tiny qw{ bar baz };
+      
+  1;
+      
   
-      use Object::Tiny qw{ bar baz };
-  
-      1;
-  
-      # Use the class
+  # Use the class
       my $object = Foo->new( bar => 1 );
-  
-      print "bar is " . $object->bar . "\n";
+      
+  print "bar is " . $object->bar . "\n";
 
 DESCRIPTION
     There's a whole bunch of class builders out there. In fact, creating a
@@ -56,7 +57,7 @@ DESCRIPTION
           seperator_font_color
           seperator_font_size
           seperator_text_content
-          };
+      };
 
     This will create a bunch of simple accessors, and set the inheritance to
     be the child of Object::Tiny.
@@ -74,11 +75,11 @@ DESCRIPTION
       sub new {
           my $class = shift;
           my $self  = $class->SUPER::new( @_ );
-  
-          # Extra checking and such
+      
+      # Extra checking and such
           ...
-  
-          return $self;
+      
+      return $self;
       }
 
     ... then feel free to ditch the SUPER call and just create the hash
@@ -164,13 +165,13 @@ DESCRIPTION
                    Rate accessor     tiny
       accessor 100949/s       --     -45%
       tiny     182382/s      81%       --
-  
-      Benchmarking constructor alone...
+      
+  Benchmarking constructor alone...
                    Rate accessor     tiny
       accessor 156470/s       --     -54%
       tiny     342231/s     119%       --
-  
-      Benchmarking accessors alone...
+      
+  Benchmarking accessors alone...
                  Rate     tiny accessor
       tiny     81.0/s       --      -0%
       accessor 81.0/s       0%       --
@@ -191,16 +192,16 @@ DESCRIPTION
     Here's what the classes used in the benchmark end up like.
 
         DB<1> use Class::Inspector
-  
-        DB<2> x Class::Inspector->methods('Foo_Bar_Tiny');
+      
+    DB<2> x Class::Inspector->methods('Foo_Bar_Tiny');
       0  ARRAY(0xfda780)
          0  'bar'
          1  'baz'
          2  'foo'
          3  'import'
          4  'new'
-  
-        DB<3> x Class::Inspector->methods('Foo_Bar_Accessor');
+      
+    DB<3> x Class::Inspector->methods('Foo_Bar_Accessor');
       0  ARRAY(0xfdb3c8)
          0  '_bar_accessor'
          1  '_baz_accessor'
@@ -269,7 +270,7 @@ SEE ALSO
     Config::Tiny
 
 COPYRIGHT
-    Copyright 2007 - 2008 Adam Kennedy.
+    Copyright 2007 - 2011 Adam Kennedy.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
