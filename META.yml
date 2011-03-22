@@ -1,7 +1,7 @@
 --- #YAML:1.0
 name:               Object-Tiny
-version:            1.07
-abstract:           A date object with as little code as possible
+version:            1.08
+abstract:           Class building as simple as it gets
 author:
     - Adam Kennedy <adamk@cpan.org>
 license:            perl
